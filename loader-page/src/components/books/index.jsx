@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Cards from "../cards";
 import "./index.css";
 
 const BooksCards = () => {
@@ -7,10 +8,6 @@ const BooksCards = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [dataFromBooks, setDataFromBooks] = useState({});
-
-  function handleClick() {
-    console.log(dataFromBooks);
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +21,8 @@ const BooksCards = () => {
         }
 
         const json = await response.json();
-        console.log(json);
         setDataFromBooks(json);
+        console.log(json.reading_log_entries);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);
@@ -40,16 +37,19 @@ const BooksCards = () => {
   return (
     <>
       {loading && <p>Loading...</p>}
-      {!loading && !error && (
+      {!loading && (
         <div className="cards-container">
-          {dataFromBooks.map((book) => (
-            <Card
-              date={book.work.date}
+          {dataFromBooks.reading_log_entries.map((book, index) => (
+            <Cards
+              key={index}
+              date={book.work.first_publish_year
+              }
               title={book.work.title}
-              author={book.work.author_name ? book.work.author_name[0] : "Unknown"}
+              author={
+                book.work.author_names 
+              }
             />
           ))}
-          console.log(book);
         </div>
       )}
     </>

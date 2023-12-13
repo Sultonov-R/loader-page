@@ -6,12 +6,12 @@ import BooksCards from "./components/books";
 import Cards from "./components/cards";
 
 function App() {
-  const [isLoading, setIsLoadiing] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const data = () => {
       setTimeout(() => {
-        setIsLoadiing(false);
+        setIsLoading(false);
       }, 4000);
     };
     data();
