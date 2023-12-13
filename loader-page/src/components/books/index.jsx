@@ -4,7 +4,6 @@ import Cards from "../cards";
 import "./index.css";
 
 const BooksCards = () => {
-  const [data, setData] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [dataFromBooks, setDataFromBooks] = useState({});
@@ -22,7 +21,7 @@ const BooksCards = () => {
 
         const json = await response.json();
         setDataFromBooks(json);
-        console.log(json.reading_log_entries);
+        // console.log(json)
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);
@@ -37,17 +36,14 @@ const BooksCards = () => {
   return (
     <>
       {loading && <p>Loading...</p>}
-      {!loading && (
+      {!loading && Array.isArray(dataFromBooks.reading_log_entries) && (
         <div className="cards-container">
-          {dataFromBooks.reading_log_entries.map((book, index) => (
+          {dataFromBooks.reading_log_entries.slice(0, 1).map((book, index) => (
             <Cards
               key={index}
-              date={book.work.first_publish_year
-              }
+              date={book.work.first_publish_year}
               title={book.work.title}
-              author={
-                book.work.author_names 
-              }
+              author={book.work.author_names}
             />
           ))}
         </div>

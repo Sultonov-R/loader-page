@@ -24,8 +24,7 @@ function App() {
       ) : (
         <h1 className="welcome-text">Welcome this application</h1>
       )}
-      {<BooksCards />}
-      <Cards />
+      <BooksCards />
     </>
   );
 }

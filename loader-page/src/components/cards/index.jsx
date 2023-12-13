@@ -8,7 +8,7 @@ const Cards = ({title, author, date})=>{
         <>
         <div className="cards">
             <div className="card-img">
-                <img src="https://c0.klipartz.com/pngpicture/477/850/gratis-png-superposicion-de-texto-de-heroe-superheroe-superman-batman-comics-youtube-superman.png" alt="img" />
+                <img src="https://images.penguinrandomhouse.com/cover/9780143127048" alt="img" />
             </div>
 
             <div className="card-book-info">
