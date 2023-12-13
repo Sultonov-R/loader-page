@@ -1,0 +1,30 @@
+.cards{
+    width: 40%;
+    height: 60vh;
+    background-color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+.cards:hover{
+    transform: scale(1.1);
+    transition: all ease-in-out;
+}
+
+.card-img img{
+    width: 80%;
+    display: flex;
+    align-items:center;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: 2.5rem;
+}
+.card-book-info{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items:center;
+}
+.book-date{
+    margin-bottom: 1rem;
+}
